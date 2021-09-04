@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- header -->
+      <h3 class="text-center">My Chat App</h3>
+
+      <div class="messaging">
+        <div class="inbox_msg">
+          <div class="mesgs">
+            <!-- message display-->
+            <div class="msg_history" id="msg_display">
+              <div id="realTime_msg">
+                <!-- incoming_message -->
+                <div class="incoming_msg">
+                  <div class="incoming_msg_img">
+                    <img
+                      src="https://ptetutorials.com/images/user-profile.png"
+                      alt="sunil"
+                    />
+                  </div>
+                  <div class="received_msg">
+                    <div class="received_withd_msg">
+                      <p>Test which is a new approach to have all solutions</p>
+                      <span class="time_date"> 11:01 AM | June 9</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- outgoing_message -->
+                <div class="outgoing_msg">
+                  <div class="sent_msg">
+                    <p id="msg_box">
+                      Test which is a new approach to have all solutions
+                    </p>
+                    <span class="time_date"> 11:01 AM | June 9</span>
+                  </div>
+                </div>
+              </div>
+              <div class="container" id="indicator"></div>
+            </div>
+            <!-- texting_box -->
+            <div class="type_msg">
+              <div class="input_msg_write">
+                <input
+                  type="text"
+                  class="write_msg"
+                  placeholder="Type a message"
+                  id="textbox"
+                />
+                <button
+                  class="btn btn-danger msg_send_btn"
+                  type="button"
+                  id="btn"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+            <!-- end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
