@@ -1,4 +1,4 @@
-const socket = io.connect("ws://localhost:5000");
+const socket = io.connect("http://localhost:5000");
 
 //html DOM elements
 var input = document.getElementById("textbox"),
@@ -7,16 +7,18 @@ var input = document.getElementById("textbox"),
   msg = document.getElementById("msg_box"),
   indication = document.getElementById("indicator"),
   incoming_msg = document.getElementById("realTime_msg");
+time = document.getElementById("time_date");
 //Welcome message
 socket.on("welcome", (message) => {
-  msg.innerHTML = message;
+  msg.innerHTML = message.text;
+  time.innerHTML = message.time;
 });
 
 btn.addEventListener("click", () => {
   socket.emit("message", input.value);
 });
 socket.on("text", (data) => {
-  console.log(data);
+  // console.log(data);
   indication.innerHTML = "";
   input.value = "";
   incoming_msg.innerHTML += ` <div class="incoming_msg">

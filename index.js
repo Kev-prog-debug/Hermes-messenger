@@ -2,31 +2,22 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.port || 5000;
-// //Implement and connect to the mongoDb database
-// // const MongoClient = require("mongodb").MongoClient;
-// // const url =
-// //   "mongodb+srv://Kevin:testing123@chatapp.e61gx.mongodb.net/chat_data?retryWrites=true&w=majority";
-// // MongoClient.connect(url, (err, db) => {
-// //   if (err) {
-// //     throw err;
-// //   }
-// //   console.log("Connected to the database..");
-// // });
 
-// const { MongoClient } = require("mongodb");
-// const uri = "mongodb+srv://Kevin:kevin@chatapp.e61gx.mongodb.net/sample_airbnb";
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// client.connect((err, db) => {
+//Connect to the Db
+// const mongodb = require("mongodb").MongoClient;
+// const uri = "mongodb://localhost:27017";
+// mongodb.connect(uri, (err, client) => {
 //   if (err) {
 //     throw err;
 //   }
-//   console.log("Database has been connected..");
+//   let db = client.db("users");
+//   console.log(
+//     db
+//       .collection("users_id")
+//       .insertOne({ name: "Gway Si kg", age: 22, address: "Yangon" })
+//   );
 // });
-
-//Add static folder for the frontend
+//add static folder
 app.use(express.static(path.join(__dirname, "public")));
 let server = app.listen(port, () =>
   console.log("Server is listening on the port", port)
@@ -35,7 +26,10 @@ let server = app.listen(port, () =>
 //Import socket.io and implement to the server
 const io = require("socket.io")(server);
 io.on("connection", (socket) => {
-  socket.emit("welcome", "Hi,Welcome from my messaging app!");
+  socket.emit("welcome", {
+    text: "Hi,Welcome from my messaging app!",
+    time: Date(),
+  });
 
   socket.on("message", (data) => {
     io.sockets.emit("text", {
