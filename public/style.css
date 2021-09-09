@@ -180,7 +180,7 @@ img {
 }
 .msg_history {
   position: relative;
-  height: 516px;
+  height: 550px;
   overflow-y: auto;
 }
 
@@ -192,4 +192,15 @@ img {
 }
 #realTime_msg {
   margin-bottom: 20px;
+}
+.username {
+  padding: 5px 10px;
+  font-weight: 600;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#joined_users {
+  position: relative;
+  width: auto;
+  align-content: center;
 }
