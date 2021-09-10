@@ -8,8 +8,9 @@ var input = document.getElementById("textbox"),
   indication = document.getElementById("indicator"),
   modalBtn = document.getElementById("modal_btn"),
   username = document.getElementById("username"),
-  incoming_msg = document.getElementById("realTime_msg");
-time = document.getElementById("time_date");
+  incoming_msg = document.getElementById("realTime_msg"),
+  active_users = document.getElementById("active_users"),
+  time = document.getElementById("time_date");
 //Welcome message
 socket.on("welcome", (message) => {
   msg.innerHTML = message.text;

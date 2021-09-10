@@ -12,8 +12,9 @@ let server = app.listen(port, () =>
   console.log("Server is listening on the port", port)
 );
 
-//Import socket.io and implement to the server
+//Connect to the mongodb client
 MongoClient.connect(uri, (err, client) => {
+  //Import socket.io and implement to the server
   const io = require("socket.io")(server);
   io.on("connection", (socket) => {
     //Welcoming message
@@ -33,10 +34,10 @@ MongoClient.connect(uri, (err, client) => {
       socket.broadcast.emit("typing", indicator);
     });
     //add username to the db
-    socket.on("users", (username) => {
-      var cursor = client.db("users").collection("users_id");
-      cursor.insertOne({ name: username });
-    });
+    // socket.on("users", (username) => {
+    //   var cursor = client.db("users").collection("users_id");
+    //   cursor.insertOne({ name: username });
+    // });
     socket.on("message", (data) => {
       io.sockets.emit("text", {
         text: data.input,

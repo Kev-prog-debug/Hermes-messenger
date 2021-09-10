@@ -204,3 +204,9 @@ img {
   width: auto;
   align-content: center;
 }
+#active_users {
+  position: absolute;
+  left: 0;
+  font-size: 15px;
+  font-weight: 300;
+}
