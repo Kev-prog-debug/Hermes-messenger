@@ -1,4 +1,4 @@
-const socket = io.connect("http://localhost:5000");
+const socket = io("http://localhost:5000");
 
 //html DOM elements
 var input = document.getElementById("textbox"),
